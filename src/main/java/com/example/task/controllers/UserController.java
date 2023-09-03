@@ -72,6 +72,18 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @DeleteMapping(value = "/users/email/{emailId}")
+    public ResponseEntity<Void> deleteEmail(@PathVariable Long emailId) {
+        userDao.deleteEmail(emailId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping(value = "/users/email/{phoneId}")
+    public ResponseEntity<Void> deletePhone(@PathVariable Long phoneId) {
+        userDao.deletePhone(phoneId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<ResponseError> handleNotFound(EntityNotFoundException e) {
         return new ResponseEntity<>(new ResponseError(HttpStatus.NOT_FOUND.value(), e.getMessage()), HttpStatus.NOT_FOUND);

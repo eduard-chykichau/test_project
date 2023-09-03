@@ -12,6 +12,7 @@ import java.util.List;
 @Getter
 @Builder
 public class UserDTO {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long id;
     @NotBlank(message = "firstName is mandatory")
     private String firstName;

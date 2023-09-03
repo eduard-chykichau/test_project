@@ -158,7 +158,8 @@ public class UserDaoImpl implements UserDao {
                         .firstName(user.getFirstName())
                         .lastName(user.getLastName())
                         .emails(user.getEmails().stream().map(email -> EmailDTO.builder()
-                                        .email(email.getEmail()).build())
+                                        .email(email.getEmail())
+                                        .id(email.getId()).build())
                                 .toList())
                         .build())
                 .orElseThrow(() -> new EntityNotFoundException(getError(userId)));
@@ -172,7 +173,8 @@ public class UserDaoImpl implements UserDao {
                         .firstName(user.getFirstName())
                         .lastName(user.getLastName())
                         .phones(user.getPhones().stream().map(phone -> PhoneDTO.builder()
-                                        .phone(phone.getPhone()).build())
+                                        .phone(phone.getPhone())
+                                .id(phone.getId()).build())
                                 .toList())
                         .build())
                 .orElseThrow(() -> new EntityNotFoundException(getError(userId)));
