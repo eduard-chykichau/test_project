@@ -78,7 +78,7 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @DeleteMapping(value = "/users/email/{phoneId}")
+    @DeleteMapping(value = "/users/phone/{phoneId}")
     public ResponseEntity<Void> deletePhone(@PathVariable Long phoneId) {
         userDao.deletePhone(phoneId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
